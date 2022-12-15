@@ -76,7 +76,7 @@ const watchesArr=[
 
 function Smartwatch(){
     return(
-        <>
+        <div style={{position:"sticky"}}>
          <Box w="85%" h="500px" margin="auto" mt={10} mb={10} >
             <Text mb={7} textAlign="initial" fontSize={25} >SMART WATCHES STARTING FROM ₹999</Text>
             <Flex>
@@ -89,7 +89,7 @@ function Smartwatch(){
                 <Box w="75%">
                 <Grid templateColumns="Repeat(4,1fr)" gap={1}>
                 {watchesArr.map((el)=>(
-                    <Card w="200px" h="auto">
+                    <Card key={el.id} w="200px" h="auto">
                         <CardBody>
                             <Image w="100%" src={el.images[0]} alt=""/>
                             <Stack mt={6} spacing={3}>
@@ -120,7 +120,7 @@ function Smartwatch(){
             </Flex>
             
             </Box>
-        </>
+        </div>
     )
 
 }
