@@ -12,11 +12,11 @@ import {ChevronDownIcon} from "@chakra-ui/icons";
 function MegaMenu(){
     return(
         <>
-        <Box w="100%" bg="#14276e " h="40px" color="white" p={2} >
+        <Box w="100%" bg="#14276e " h="52px" color="white" pb={2} >
             <Flex justifyContent="space-around">
                 {/* mobiles and tablets */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">MOBILES & TABLETS <ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>MOBILES & TABLETS <ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5} color="white" fontSize="17px" fontWeight="700">SmartPhones</MenuItem>
@@ -50,7 +50,7 @@ function MegaMenu(){
                 </Menu>
                 {/* televisions */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">TELEVISIONS<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>TELEVISIONS<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem bg="#14276e "  color="white" fontSize="17px" fontWeight="700">Televisions</MenuItem>
@@ -88,7 +88,7 @@ function MegaMenu(){
                 </Menu>
                 {/* audio */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">AUDIO <ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>AUDIO <ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5}  color="white"fontSize="17px" fontWeight="700">HeadPhones & Headsets</MenuItem>
@@ -132,7 +132,7 @@ function MegaMenu(){
                 </Menu>
                 {/* home appliances */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">HOME APPLIANCES<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>HOME APPLIANCES<ChevronDownIcon/></MenuButton>
                     <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5}  color="white"fontSize="17px" fontWeight="700">HeadPhones & Headsets</MenuItem>
@@ -176,7 +176,7 @@ function MegaMenu(){
                 </Menu>
                 {/* computers */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">COMPUTERS<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>COMPUTERS<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5} color="white" fontSize="17px" fontWeight="700">SmartPhones</MenuItem>
@@ -210,7 +210,7 @@ function MegaMenu(){
                 </Menu>
                 {/* cameras */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">CAMERAS<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>CAMERAS<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5} color="white" fontSize="17px" fontWeight="700">SmartPhones</MenuItem>
@@ -244,7 +244,7 @@ function MegaMenu(){
                 </Menu>
                 {/* kitchen Appliances */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">KITCHEN APPLIANCES<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>KITCHEN APPLIANCES<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5} color="white" fontSize="17px" fontWeight="700">SmartPhones</MenuItem>
@@ -278,7 +278,7 @@ function MegaMenu(){
                 </Menu>
                 {/* personal care */}
                 <Menu >
-                    <MenuButton fontSize="14px" fontWeight="600">PERSONAL CARE<ChevronDownIcon/></MenuButton>
+                    <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>PERSONAL CARE<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem bg="#14276e " mb={5} color="white" fontSize="17px" fontWeight="700">SmartPhones</MenuItem>
