@@ -19,7 +19,7 @@ function Carousel(){
         //setPic(ImagesArr[0]);
         let i=0;
         setInterval(()=>{
-            if(i==ImagesArr.length){
+            if(i===ImagesArr.length){
                 i=0;
                 setPic(ImagesArr[0]);
         

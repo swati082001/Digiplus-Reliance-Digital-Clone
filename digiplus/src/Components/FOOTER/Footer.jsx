@@ -1,4 +1,4 @@
-import {Box,Grid,List,ListItem,UnorderedList,Flex ,Image,Text, Divider} from "@chakra-ui/react";
+import {Box,Grid,ListItem,UnorderedList,Flex ,Image,Text, Divider} from "@chakra-ui/react";
 import { FaFacebookF ,FaTwitter,FaYoutube} from "react-icons/fa";
 
 
