@@ -27,7 +27,7 @@ function Carousel(){
 
             setPic(ImagesArr[i]);
             i++;
-            console.log(i);
+            
          },3000)
        
 

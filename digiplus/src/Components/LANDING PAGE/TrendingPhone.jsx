@@ -83,7 +83,7 @@ function TrendingPhone(){
                 <Box w="75%">
                 <Grid templateColumns="Repeat(4,1fr)" gap={1}>
                 {MobilesArr.map((el)=>(
-                    <Card w="200px" h="auto">
+                    <Card key={el.id} w="200px" h="auto">
                         <CardBody>
                             <Image w="100%" src={el.images[0]} alt=""/>
                             <Stack mt={6} spacing={3}>

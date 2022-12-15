@@ -1,4 +1,5 @@
-//import { Image } from "@chakra-ui/react";
+// import { useColorMode,Button } from "@chakra-ui/react";
+
 
 
 import AllRoutes from "./Routes/AllRoutes";
@@ -6,8 +7,12 @@ import AllRoutes from "./Routes/AllRoutes";
 import './App.css';
 
 function App() {
+  // const { colorMode, toggleColorMode } = useColorMode()
   return (
     <div className="App">
+      {/* <Button onClick={toggleColorMode}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Button> */}
       <AllRoutes/>
     </div>
   );
