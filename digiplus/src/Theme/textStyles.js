@@ -36,10 +36,42 @@ export const textStyles={
         lineHeight:"12px",
         padding:"20px",
         color:"black",
-        
-
-    }
     
+    },
+    SideBarHead:{
+        fontSize:"14px",
+        fontWeight:"500",
+        paddingBottom:"5px",
+        color:"#5A5A59",
+        textAlign:"initial"
+
+    },
+    SideBarText:{
+        fontSize:"14px",
+        fontWeight:"400",
+        paddingBottom:"5px",
+        color:"#333333",
+        textAlign:"initial"
+    },
+    MainBarHead:{
+        fontSize:"24px",
+        fontWeight:"600",
+        paddingBottom:"5px",
+        color:"#333333",
+        textAlign:"initial"
+    },
+    price:{
+        fontSize:"14px",
+        fontWeight:"600",
+        color:"#14276e"
+
+    },
+    striked:{
+        fontSize:"14px",
+        fontWeight:"400",
+        color:"grey",
+    
+    }
 
 };
 

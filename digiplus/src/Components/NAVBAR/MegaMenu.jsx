@@ -25,7 +25,7 @@ function MegaMenu(){
                                     <MenuItem  mb={5} textStyle="NavHead">SmartPhones</MenuItem>
                                     </Link>
                                     <MenuItem textStyle="NavHead">HeadPhones & Headsets</MenuItem>
-                                    <MenuItem  mb={5}  c textStyle="NavHead">All Learning Robots</MenuItem>
+                                    <MenuItem  mb={5}   textStyle="NavHead">All Learning Robots</MenuItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
                                     <MenuItem textStyle="NavHead">Wearable Technology</MenuItem>
@@ -36,8 +36,8 @@ function MegaMenu(){
                                     <MenuItem textStyle="NavText">Everyday use Tablets below 15000</MenuItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
-                                    <MenuItem  mb={5} c  textStyle="NavText">Apple Price Drop</MenuItem>
-                                    <MenuItem  mb={5} c textStyle="NavText">Premium Tablets,Above 15001</MenuItem>
+                                    <MenuItem  mb={5}   textStyle="NavText">Apple Price Drop</MenuItem>
+                                    <MenuItem  mb={5}   textStyle="NavText">Premium Tablets,Above 15001</MenuItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
                                     <MenuItem  textStyle="NavHead" >Accessories</MenuItem>
@@ -183,28 +183,26 @@ function MegaMenu(){
                     <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>COMPUTERS<ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
-                                    <MenuItem  mb={5}  textStyle="NavHead">SmartPhones</MenuItem>
-                                    <MenuItem  mb={5} textStyle="NavHead">HeadPhones & Headsets</MenuItem>
-                                    <MenuItem  mb={5} textStyle="NavHead">All Learning Robots</MenuItem>
+                                    <Link to="/laptop"><MenuItem  mb={3}  textStyle="NavHead">Laptops</MenuItem></Link>
+                                    <MenuItem  mb={3} textStyle="NavHead">Bluetooth & WiFi Speakers</MenuItem>
+                                    <MenuItem  mb={3} textStyle="NavHead">Computer Accessories</MenuItem>
+                                </Grid>
+        
+                                <Grid templateColumns="repeat(3,1fr)" gap="100px">
+                                    <Link to="/laptop"><MenuItem  textStyle="NavText">Basic Laptops</MenuItem></Link>
+                                    <MenuItem textStyle="NavHead">Internet Connectivity Devices</MenuItem>
+                                    <MenuItem  textStyle="NavText">Computer networking Cables</MenuItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
-                                    <MenuItem  textStyle="NavHead">Wearable Technology</MenuItem>
-                                    <MenuItem textStyle="NavHead">Tablets & e-Readers</MenuItem>
-                                </Grid>
-                                <Grid templateColumns="repeat(3,1fr)" gap="100px">
-                                    <MenuItem  textStyle="NavText">Top Selling SmartWatches</MenuItem>
-                                    <MenuItem textStyle="NavText">Everyday use Tablets below 15000</MenuItem>
-                                </Grid>
-                                <Grid templateColumns="repeat(3,1fr)" gap="100px">
-                                    <MenuItem  mb={5}  textStyle="NavText">Apple Price Drop</MenuItem>
-                                    <MenuItem  mb={5} textStyle="NavText">Premium Tablets,Above 15001</MenuItem>
+                                <Link to="/laptop"><MenuItem  mb={5}  textStyle="NavText">Student Laptops</MenuItem></Link>
+                                    <MenuItem  mb={5} textStyle="NavText">Wifi range extenders</MenuItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(3,1fr)" gap="100px">
                                     <MenuItem  textStyle="NavHead">Accessories</MenuItem>
                                     <MenuItem textStyle="NavHead">Power Banks</MenuItem>
                                 </Grid>
-                                <MenuItem  textStyle="NavText">Tablet Accessories</MenuItem>
-                                <MenuItem  textStyle="NavText">Mobile Accessories </MenuItem>
+                                <Link to="/laptop"><MenuItem  textStyle="NavText">Thin and Light Laptops</MenuItem></Link>
+                                <MenuItem  textStyle="NavText">Multi-tasking laptops </MenuItem>
                                 <MenuItem  textStyle="NavText">Mobile grips & Stands</MenuItem>
                                 <MenuItem  textStyle="NavText"> Car Mobile Holders</MenuItem>
                                 <MenuItem  textStyle="NavText">Memory Cards </MenuItem>
