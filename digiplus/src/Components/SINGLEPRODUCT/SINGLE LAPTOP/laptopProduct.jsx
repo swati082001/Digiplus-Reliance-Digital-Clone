@@ -1,15 +1,14 @@
 import { useParams } from "react-router-dom";
 import React from "react";
-import SingleCrumbs from "./SingleCrumbs";
-import Styles from "./Single.module.css";
+import LaptopCrumbs from "./LaptopCrumbs";
+import Styles from "./laptopProduct.module.css";
 import { Divider,Flex,Box, Skeleton ,Image,Text, UnorderedList, ListItem,Center, Button} from "@chakra-ui/react";
-//import Navbar from "../NAVBAR/Navbar"
-import Footer from "../FOOTER/Footer";
-import Navbar from "../NAVBAR/Navbar"
+import Footer from "../../FOOTER/Footer";
+import Navbar from "../../NAVBAR/Navbar";
 import { Link } from "react-router-dom";
 
 
-function Singleproduct(){
+function LaptopProduct(){
 
     const {id} = useParams();
     
@@ -22,16 +21,14 @@ function Singleproduct(){
     function AddToCart(){
         arr.push(cart);
         localStorage.setItem("CartData",JSON.stringify(arr));
-       
+        
     }
-
-    
 
 
     async function fetchSingleProductData(){
         try {
-            setIsLoading(false)
-            let response = await fetch(`https://digiplus-pu8v.vercel.app/mobiles/${id}`)
+            setIsLoading(false);
+            let response = await fetch(`https://digiplus-pu8v.vercel.app/laptop/${id}`)
             let data = await response.json();
             console.log(data);
             setData([data]);
@@ -40,8 +37,7 @@ function Singleproduct(){
             
         } catch (error) {
             console.log(error);
-            setIsLoading(false);
-            
+            setIsLoading(false)
         }
     }
 
@@ -50,13 +46,12 @@ function Singleproduct(){
         fetchSingleProductData();
     },[])
 
-    //console.log(data,"data");
+    console.log(data,"data");
 
-    
     return(
-        <div className={Styles.single}>
+        <div className={Styles.laptopSingle}>
         <Navbar/>
-        <SingleCrumbs isLoading={isLoading}/>
+        <LaptopCrumbs isLoading={isLoading}/>
         <Divider color="blackAlpha.700"/>
 
         <Skeleton isLoaded={isLoading}>
@@ -149,8 +144,7 @@ function Singleproduct(){
                                     <Text textStyle="SinglePageHead">FREE SHIPPING!</Text>
 
                                     <Flex>
-                                        
-                                       <Link to="/cart">
+                                    <Link to="/cart">
                                         <Button w="150px" _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="AddToCart" onClick={AddToCart}>ADD TO CART</Button>
                                         </Link>
                                         <Button w="150px" _hover={{bg:"white",color:"black",border:"1px solid #fc6027"}}  textStyle="BuyNow">BUY NOW</Button>
@@ -176,4 +170,4 @@ function Singleproduct(){
 
 }
 
-export default Singleproduct;
+export default LaptopProduct;

@@ -1,16 +1,16 @@
 import React from "react";
 import { Box,Skeleton,Flex, Divider,Text,Stack,Button, Card,Grid, CardBody,Image, Select} from "@chakra-ui/react";
 import {ChevronLeftIcon,ChevronRightIcon} from "@chakra-ui/icons";
-import Styles from "./laptop.module.css";
-import LaptopSidebar from "./LaptopSidebar";
-import Breadcrumbs from "./Breadcrumbs";
+import Styles from "./Headphone.module.css";
+import HeadphoneSidebar from "./HeadphoneSidebar";
+import Crumbs from "./Crumbs";
 import Navbar from "../../NAVBAR/Navbar";
 import Footer from "../../FOOTER/Footer"
 import { Link } from "react-router-dom";
 
 
 
-function Laptops(){
+function Headphones(){
     const[isLoading,setIsLoading]=React.useState(true);
     const [data,setData]=React.useState([]);
     const[page,setPage]=React.useState(1);
@@ -33,10 +33,10 @@ function Laptops(){
     
     
 
-   async function getLaptopData(page,limit){
+   async function getHeadPhonesData(page,limit){
     try {
         setIsLoading(false);
-        let response = await fetch(`https://digiplus-pu8v.vercel.app/laptop?_page=${page}&_limit=${limit}`);
+        let response = await fetch(`https://digiplus-pu8v.vercel.app/earphones?_page=${page}&_limit=${limit}`);
         let data = await response.json();
         // console.log(data);
         setData(data);
@@ -50,7 +50,7 @@ function Laptops(){
    }
 
     React.useEffect(()=>{
-        getLaptopData(page,limit);
+        getHeadPhonesData(page,limit);
 
     },[page,limit])
    
@@ -67,16 +67,16 @@ function Laptops(){
     
     
     return(
-        <div className={Styles.lapback} >
+        <div className={Styles.headback} >
             <Navbar/>
-        <Breadcrumbs isLoading={isLoading}/>
+        <Crumbs isLoading={isLoading}/>
         
         <Divider color="blackAlpha.700"/>
        
        {/* mainbox */}
         <Flex justifyContent="space-evenly">
             <Box w="18%" h="auto"  >
-           <LaptopSidebar isLoading={isLoading}/>
+           <HeadphoneSidebar isLoading={isLoading}/>
             </Box>
 
             <Box w="80%" h="auto" >
@@ -85,8 +85,8 @@ function Laptops(){
                     <Box w="100%" bg="#fff" h="90px" p={2}>
                         <Flex justifyContent="space-between">
                             <Box w="30%" >
-                                <Text textStyle="MainBarHead">LAPTOPS</Text>
-                                <Text textAlign="initial">(Showing {limit} products of 70 products)</Text>
+                                <Text textStyle="MainBarHead">HEADPHONES</Text>
+                                <Text textAlign="initial">(Showing {limit} products of 88 products)</Text>
                             </Box>
 
                             <Box w="45%" >
@@ -111,12 +111,12 @@ function Laptops(){
 
                     {data.map((el)=>(
                         <Skeleton  key={el.id} isLoaded={isLoading}>
-                            <Link to={`/laptop/${el.id}`}>
+                            <Link to={`/headphone/${el.id}`}>
                         <Card  bg="#fff" mt={5}  h="500px">
                             <CardBody>
                                 <Stack>
 
-                                <Image _hover={{width:"95%"}}  w="90%" margin="auto" src={el.images} alt="" />
+                                <Image _hover={{width:"75%"}}  w="70%" margin="auto" src={el.images} alt="" />
                                 <Text _hover={{color:"red"}}textAlign="initial">{el.title}</Text>
                                 <Text textAlign="initial">({el.rating})</Text>
                                 <Flex>
@@ -153,7 +153,7 @@ function Laptops(){
                                 <option value="20">20</option>
                                 <option value="30">30</option>
                             </Select>
-                            <Text mt={4}>out of 70 items.</Text>
+                            <Text mt={4}>out of 88 items.</Text>
                             </Flex>
 
                         </Box>
@@ -172,4 +172,4 @@ function Laptops(){
 
 }
 
-export default Laptops;
+export default Headphones;

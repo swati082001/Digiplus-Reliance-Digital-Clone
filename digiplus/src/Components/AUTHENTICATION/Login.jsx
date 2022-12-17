@@ -40,7 +40,7 @@ function Login(){
     
         }
 
-        console.log(loginstate);
+        //console.log(loginstate);
 
     return(
         <>
@@ -54,7 +54,7 @@ function Login(){
             </CardHeader>
             <CardBody>
                 <form onSubmit={handleSubmit}>
-                    <FormControl>
+                    <FormControl isRequired>
                         <Stack>
 
                         <Input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter Email here*"/>

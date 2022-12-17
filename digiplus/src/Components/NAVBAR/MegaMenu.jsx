@@ -95,7 +95,7 @@ function MegaMenu(){
                     <MenuButton p={4} mb="4px" fontSize="14px" fontWeight="600" _hover={{bg:"rgb(224,19,19)"}}>AUDIO <ChevronDownIcon/></MenuButton>
                         <MenuList p={7} bg="#14276e " >
                                 <Grid templateColumns="repeat(4,1fr)" gap="100px">
-                                    <MenuItem  mb={5}  textStyle="NavHead">HeadPhones & Headsets</MenuItem>
+                                    <Link to="/headphone"><MenuItem  mb={5}  textStyle="NavHead">HeadPhones & Headsets</MenuItem></Link>
                                     <MenuItem  mb={5}  textStyle="NavHead">BlueTooth & WiFi Speakers</MenuItem>
                                     <MenuItem  mb={5}  textStyle="NavHead">TV Speakers & Sounbars</MenuItem>
                                     <MenuItem  mb={5}  textStyle="NavHead">Musical Instruments</MenuItem>
