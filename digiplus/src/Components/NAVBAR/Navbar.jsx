@@ -1,9 +1,9 @@
-import { Box,Flex ,Image,Text,Input} from "@chakra-ui/react";
+import { Box,Flex ,Image,Text,Input,InputGroup,InputRightElement} from "@chakra-ui/react";
 import MegaMenu from "./MegaMenu";
 import {Link} from "react-router-dom"
 import React from "react";
 import { LoginContext } from "../../Context/LoginContext";
-//import {SearchIcon} from "@chakra-ui/icons";
+import {SearchIcon} from "@chakra-ui/icons";
 import Styles from "./navbar.module.css"
 
 
@@ -14,7 +14,7 @@ function Navbar(){
     const {loginstate}=React.useContext(LoginContext);
     const info = JSON.parse(localStorage.getItem("name"));
 // console.log(info.firstName);
- console.log(loginstate,"l");
+//  console.log(loginstate,"l");
 
     return(
         <div className={Styles.nav}>
@@ -32,7 +32,10 @@ function Navbar(){
          </Box>
          <Box mt={6}>
             <Flex>
+                <InputGroup>
             <Input w="500px" bg="white" borderRadius="50px" placeholder="Find Your Favourite Products" ></Input>
+            <InputRightElement children={<SearchIcon color='grey' />} />
+                </InputGroup>
             </Flex>
          </Box>
          <Box mt={8}>

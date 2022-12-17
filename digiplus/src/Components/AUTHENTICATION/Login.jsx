@@ -31,11 +31,11 @@ function Login(){
             let data = await response.json();
             console.log(data);
             openLogin(data.token);
-            
+            alert("User is successfully logged in")
             
         } catch (error) {
             console.log(error);
-            
+            alert("Invalid Credentials")
         }
     
         }
@@ -48,7 +48,7 @@ function Login(){
         {loginstate.isLogin && (
             <Navigate to="/"/>
         )}
-        <Card  margin="auto" w="35%" h="auto" mt="50px" mb="50px">
+        <Card  margin="auto" w="35%" h="auto" mt="200px" mb="50px">
             <CardHeader  bg="rgb(247,247,247)">
                 <Text textAlign="initial" color="black" fontSize="18px" fontWeight="700">SIGN IN</Text>
             </CardHeader>

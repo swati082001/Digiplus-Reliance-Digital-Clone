@@ -63,7 +63,7 @@ function Register(){
             <Navigate to="/login"/>
           )}
         
-        <Card  margin="auto" w="35%" h="auto" mt="50px" mb="50px">
+        <Card  margin="auto" w="35%" h="auto" mt="200px" mb="50px" >
             <CardHeader  bg="rgb(247,247,247)">
                 <Text textAlign="initial" color="black" fontSize="18px" fontWeight="700">Register New Account</Text>
             </CardHeader>

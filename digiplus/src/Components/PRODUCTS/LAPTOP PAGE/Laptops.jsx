@@ -1,16 +1,15 @@
 import React from "react";
 import { Box,Skeleton,Flex, Divider,Text,Stack,Button, Card,Grid, CardBody,Image, Select} from "@chakra-ui/react";
 import {ChevronLeftIcon,ChevronRightIcon} from "@chakra-ui/icons";
-import Styles from "./mobile.module.css";
+import Styles from "./laptop.module.css";
 import Sidebar from "../Sidebar";
 import Breadcrumbs from "./Breadcrumbs";
 import Navbar from "../../NAVBAR/Navbar";
 import Footer from "../../FOOTER/Footer"
-import { Link } from "react-router-dom";
 
 
 
-function Mobile(){
+function Laptops(){
     const[isLoading,setIsLoading]=React.useState(true);
     const [data,setData]=React.useState([]);
     const[page,setPage]=React.useState(1);
@@ -33,10 +32,10 @@ function Mobile(){
     
     
 
-   async function getMobileData(page,limit){
+   async function getLaptopData(page,limit){
     try {
         setIsLoading(false);
-        let response = await fetch(`https://digiplus-pu8v.vercel.app/mobiles?_page=${page}&_limit=${limit}`);
+        let response = await fetch(`https://digiplus-pu8v.vercel.app/laptop?_page=${page}&_limit=${limit}`);
         let data = await response.json();
         // console.log(data);
         setData(data);
@@ -50,7 +49,7 @@ function Mobile(){
    }
 
     React.useEffect(()=>{
-        getMobileData(page,limit);
+        getLaptopData(page,limit);
 
     },[page,limit])
    
@@ -67,7 +66,7 @@ function Mobile(){
     
     
     return(
-        <div className={Styles.back} >
+        <div className={Styles.lapback} >
             <Navbar/>
         <Breadcrumbs isLoading={isLoading}/>
         
@@ -85,8 +84,8 @@ function Mobile(){
                     <Box w="100%" bg="#fff" h="90px" p={2}>
                         <Flex justifyContent="space-between">
                             <Box w="30%" >
-                                <Text textStyle="MainBarHead">LATEST MOBILE PHONE</Text>
-                                <Text textAlign="initial">(Showing {limit} products of 78 products)</Text>
+                                <Text textStyle="MainBarHead">LAPTOPS</Text>
+                                <Text textAlign="initial">(Showing {limit} products of 70 products)</Text>
                             </Box>
 
                             <Box w="45%" >
@@ -111,12 +110,11 @@ function Mobile(){
 
                     {data.map((el)=>(
                         <Skeleton  key={el.id} isLoaded={isLoading}>
-                            <Link to={`/mobiles/${el.id}`}>
-                        <Card  bg="#fff" mt={5}  h="450px">
+                        <Card  bg="#fff" mt={5}  h="500px">
                             <CardBody>
                                 <Stack>
 
-                                <Image _hover={{width:"65%"}}  w="60%" margin="auto" src={el.images} alt="" />
+                                <Image _hover={{width:"95%"}}  w="90%" margin="auto" src={el.images} alt="" />
                                 <Text _hover={{color:"red"}}textAlign="initial">{el.title}</Text>
                                 <Text textAlign="initial">({el.rating})</Text>
                                 <Flex>
@@ -128,7 +126,6 @@ function Mobile(){
 
                             </CardBody>
                         </Card>
-                            </Link>
                         </Skeleton>
                     ))}
                     </Grid>
@@ -153,7 +150,7 @@ function Mobile(){
                                 <option value="20">20</option>
                                 <option value="30">30</option>
                             </Select>
-                            <Text mt={4}>out of 78 items.</Text>
+                            <Text mt={4}>out of 70 items.</Text>
                             </Flex>
 
                         </Box>
@@ -172,4 +169,4 @@ function Mobile(){
 
 }
 
-export default Mobile;
+export default Laptops;
