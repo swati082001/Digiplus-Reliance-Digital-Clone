@@ -41,7 +41,7 @@ function Register(){
             let data = await response.json();
             console.log(data);
             openRegister(data.token)
-            let arr=[];
+            let arr=JSON.parse(localStorage.getItem("userDetails")) || [];
             arr.push(userDetails);
             localStorage.setItem("userDetails",JSON.stringify(arr));
             localStorage.setItem("name",JSON.stringify(userDetails));
@@ -71,25 +71,25 @@ function Register(){
                 <form onSubmit={handleSubmit}>
                         <Stack direction="column" gap="10px">
                     
-                        <FormControl>
+                        <FormControl isRequired>
                         <Input type="text" value={Fname} onChange={(e)=>setFName(e.target.value)} placeholder="First Name*"/>
                         </FormControl>
 
-                        <FormControl>
+                        <FormControl isRequired>
                         <Input type="text" value={lastname} onChange={(e)=>setLastName(e.target.value)} placeholder="Last Name*"/>
                         </FormControl>
 
-                        <FormControl>
+                        <FormControl isRequired>
                         <Input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Email Address*"/>
                         <FormHelperText fontSize={12} textAlign="initial" color="grey" fontWeight="500">Your email address will be used to send invoice,order updates,etc.</FormHelperText>
                         </FormControl>
 
-                        <FormControl>
+                        <FormControl isRequired>
                         <Input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password*"/>
                         <Text fontSize={12} textAlign="initial" color="grey" fontWeight="500">Your Password will be secured and used for further login purposes.</Text>
                         </FormControl>
 
-                        <FormControl>
+                        <FormControl isRequired>
                         <Input type="number" value={mobile} onChange={(e)=>setMobile(e.target.value)} placeholder="Mobile Number*" />
                         <Text fontSize={12} textAlign="initial" color="grey" fontWeight="500">Your Mobile Number will be used to avail benefits such as Jio mart cashback and ROne loyalty points and to get quick notifications.</Text>
                         </FormControl>

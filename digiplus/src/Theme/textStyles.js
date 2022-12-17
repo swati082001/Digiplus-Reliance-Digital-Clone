@@ -71,7 +71,50 @@ export const textStyles={
         fontWeight:"400",
         color:"grey",
     
-    }
+    },
+    SinglePageHead:{
+        fontSize:"17px",
+        fontWeight:"600",
+        lineHeight:"15px",
+        textAlign:"initial"
+    },
+    SinglePagePrice:{
+        fontSize:"30px",
+        fontWeight:"600",
+        paddingBottom:"5px",
+        color:"#14276e",
+        textAlign:"initial"
+    },
+   AddToCart:{
+      padding:"20px",
+      paddingLeft:"10px",
+      paddingRight:"10px",
+      fontSize:"24px",
+      backgroundColor:"Red",
+      lineHeight:"15px",
+      color:"white",
+      margin:"20px",
+      borderRadius:"0px"
+   },
+   BuyNow:{
+    padding:"20px",
+    paddingLeft:"10px",
+    paddingRight:"10px",
+    fontSize:"28px",
+    backgroundColor:"#fc6027",
+    lineHeight:"15px",
+    color:"white",
+    margin:"20px",
+    borderRadius:"0px"
+ },
+ Checkout:{
+   
+    fontSize:"24px",
+    backgroundColor:"Red",
+    lineHeight:"15px",
+    color:"white",
+    borderRadius:"0px"
+ }
 
 };
 
