@@ -2,15 +2,16 @@ import { useParams } from "react-router-dom";
 import React from "react";
 import HeadphoneCrumbs from "./HeadphoneCrumbs";
 import Styles from "./HeadphonesProduct.module.css";
-import { Divider,Flex,Box, Skeleton ,Image,Text, UnorderedList, ListItem,Center, Button} from "@chakra-ui/react";
+import { Divider,Flex,Box, Skeleton ,Image,Text, UnorderedList, ListItem,Center, Button,useToast} from "@chakra-ui/react";
 import Footer from "../../FOOTER/Footer";
 import Navbar from "../../NAVBAR/Navbar";
 import { Link } from "react-router-dom";
 
 
 function HeadphoneProduct(){
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const {id} = useParams();
+    const toast = useToast()
     
     const[isLoading,setIsLoading]=React.useState(true);
     const[data,setData]=React.useState([]);
@@ -21,9 +22,19 @@ function HeadphoneProduct(){
     function AddToCart(){
         arr.push(cart);
         localStorage.setItem("CartData",JSON.stringify(arr));
+        toast({
+            title: 'Added to Cart',
+            description: "Item has been successfully added to cart!",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
         
     }
 
+    function BuyNow(){
+        localStorage.setItem("buyNow",JSON.stringify(data));
+    }
     async function fetchSingleProductData(){
         try {
             setIsLoading(false);
@@ -42,6 +53,7 @@ function HeadphoneProduct(){
 
 
     React.useEffect(()=>{
+
         fetchSingleProductData();
     },[])
 
@@ -143,10 +155,10 @@ function HeadphoneProduct(){
                                     <Text textStyle="SinglePageHead">FREE SHIPPING!</Text>
 
                                     <Flex>
-                                        <Link to="/cart">
                                         <Button w="150px" _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="AddToCart" onClick={AddToCart}>ADD TO CART</Button>
+                                        <Link to="/checkout">
+                                        <Button w="150px"  _hover={{bg:"white",color:"black",border:"1px solid #fc6027"}} textStyle="BuyNow" onClick={BuyNow}>BUY NOW</Button>
                                         </Link>
-                                        <Button w="150px"  _hover={{bg:"white",color:"black",border:"1px solid #fc6027"}} textStyle="BuyNow">BUY NOW</Button>
                                     </Flex>
                                     </Box>
                             ))}

@@ -12,7 +12,7 @@ import Smartwatch from "./SmartWatch";
 
 
 function LandingPage(){
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     
 
     return(

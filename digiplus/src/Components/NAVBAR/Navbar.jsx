@@ -14,6 +14,8 @@ import logo from "./logo.png"
 function Navbar(){
     const {loginstate}=React.useContext(LoginContext);
     const info = JSON.parse(localStorage.getItem("name"));
+    //const itemCount=localStorage.getItem("itemCount");
+   // console.log(itemCount);
 // console.log(info.firstName);
 //  console.log(loginstate,"l");
 
