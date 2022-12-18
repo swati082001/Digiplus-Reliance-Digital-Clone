@@ -1,6 +1,6 @@
 import Navbar from "../NAVBAR/Navbar";
 import Footer from "../FOOTER/Footer";
-import { Card, CardHeader, CardBody,Text, FormControl,Input,Stack ,Flex,FormHelperText} from '@chakra-ui/react'
+import { Card, CardHeader, CardBody,Text, FormControl,Input,Stack ,Flex,FormHelperText,useToast} from '@chakra-ui/react'
 import { Link,Navigate } from "react-router-dom";
 import React from "react";
 import { RegisterContext } from "../../Context/RegisterContext";
@@ -10,12 +10,14 @@ import { RegisterContext } from "../../Context/RegisterContext";
 
 
 function Register(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const {registerstate,openRegister}=React.useContext(RegisterContext);
     const[email,setEmail]=React.useState("");
     const[password,setPassword]=React.useState("");
     const[Fname,setFName]=React.useState("");
     const[mobile,setMobile]=React.useState("");
     const[lastname,setLastName]=React.useState("");
+    const toast = useToast();
 
     const userDetails={
         firstName:Fname,
@@ -24,7 +26,7 @@ function Register(){
         email:email,
         password:password
     }
-
+    let arr=JSON.parse(localStorage.getItem("userDetails")) || [];
     async function handleSubmit(e){
         e.preventDefault();
         try {
@@ -41,14 +43,28 @@ function Register(){
             let data = await response.json();
             console.log(data);
             openRegister(data.token)
-            let arr=JSON.parse(localStorage.getItem("userDetails")) || [];
+            
             arr.push(userDetails);
             localStorage.setItem("userDetails",JSON.stringify(arr));
             localStorage.setItem("name",JSON.stringify(userDetails));
+            toast({
+                title: 'REGISTER SUCCESSFUL',
+                description: "User has been successfully registered!",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
            
             
         } catch (error) {
             console.log(error);
+            toast({
+                title: 'Invalid credentials',
+                description: "Please fill in all the data!",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
         }
 
      }
@@ -59,9 +75,7 @@ function Register(){
     return(
         <>
         <Navbar/>
-          {registerstate.isRegistered && (
-            <Navigate to="/login"/>
-          )}
+          
         
         <Card  margin="auto" w="35%" h="auto" mt="200px" mb="50px" >
             <CardHeader  bg="rgb(247,247,247)">

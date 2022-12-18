@@ -1,25 +1,27 @@
-import Styles from "./Cart.module.css";
-import {Box,Card,Flex,Text,VStack,Image, Button, CardFooter, InputGroup, Input, InputRightAddon, Divider,useToast} from "@chakra-ui/react";
-import React from "react";
-import Navbar from "../NAVBAR/Navbar";
-import Footer from "../FOOTER/Footer";
-import { Link } from "react-router-dom";
+import {Box,Accordion, AccordionItem,AccordionButton,AccordionPanel,AccordionIcon, Stack,Text, FormControl,Input, Button, Card,CardHeader,Heading, CardBody,Checkbox, OrderedList, ListItem,Flex,Image,CardFooter,Divider,InputGroup,InputRightAddon} from "@chakra-ui/react";
+import { useState,useEffect } from "react";
 
 
-
-function Cart(){
+function OrderDetails(){
     
+    let addressArr= JSON.parse(localStorage.getItem("userAdd")) || [];
+    console.log(addressArr);
+    let firstelement=[];
+    firstelement.push(addressArr[addressArr.length-1])
     let cartDetails=JSON.parse(localStorage.getItem("CartData")) || [];
-    const toast = useToast()
-    const[coupon,setCoupon]=React.useState("");
-    const[coupStatus,setCoupStatus]=React.useState(false);
-    const[total,setTotal]=React.useState(0);
-    const[isCount,setIsCount]=React.useState(0);
-    const[cartItems,setCartItems]=React.useState(cartDetails);
+    const[cartItems,setCartItems]=useState(cartDetails);
+
+
+    
+    const[coupon,setCoupon]=useState("");
+    const[coupStatus,setCoupStatus]=useState(false);
+    const[total,setTotal]=useState(0);
+    const[isCount,setIsCount]=useState(0);
+    
     
     //console.log(cartDetails);
 
-    React.useEffect(()=>{
+    useEffect(()=>{
 
         let count=0;
         let total_price=0;
@@ -55,49 +57,50 @@ function Cart(){
 
     function handleCoupon(){
         if(coupon==="DIGI123"){
-            toast({
-                title: 'Coupon Successfully Applied',
-                description: "Flat 30% discount applied!",
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
-              })
+        
               setCoupStatus(true);
         }
         else{
-            toast({
-                title: 'Coupon Code Does Not Exist',
-                description: "Oops! Please try again.",
-                status: 'error',
-                duration: 9000,
-                isClosable: true,
-              })
+        
               setCoupStatus(false);
            
         }
     }
 
-   
+
+    function handleRemove(id){
+        let newData = cartDetails.filter((el)=>{
+            return el.id!==id
+        })
+        console.log(newData);
+        localStorage.setItem("CartData",JSON.stringify(newData));
+        setCartItems(newData)
+        
+    }
+
     return(
-        <div className={Styles.cart}>
-            <Navbar />
-            <Box display={isCount===0 ? "none":"block"} w="100%" h="auto" mt="160px" mb="100px">
-                <Box w="80%" margin="auto" >
-                <Flex justifyContent="space-around">
-                    <Box w="65%" h="auto" mt={6}>
-                        <VStack spacing={4}>
+        <>
+         <Box w="100%" textAlign="initial">
+                        <Card w="40%" mt="6">
+                                <CardHeader bg="#e7e9e9" h="auto" pb={3}>
+                                <Heading  fontSize="17px" fontWeight="500">SHIPPING ADDRESS</Heading>
+                                </CardHeader>
+                                <CardBody>
+                               {firstelement.map((el)=>(
+                                <Box key={el.pincode}>
+                                    <Text textStyle="SinglePageHead" mb={3} textTransform="capitalize" >{el.first}  {el.last}</Text>
+                                    <Text textStyle="SideBarText" textTransform="capitalize" >{el.address}</Text>
+                                    <Text textStyle="SideBarText" textTransform="capitalize" >{el.addressTwo}-{el.pincode},{el.state}</Text>
+                                    <Text textStyle="SideBarText" textTransform="capitalize" >Mobile Number: {el.mobile}</Text>
 
-                        <Card w="100%" h="50px" bg="white" p={4} >
-                            <Flex>
-                            <Text fontSize="20px" textStyle="SinglePageHead">My Cart</Text>
-                            <Text ml={3} lineHeight="15px" textStyle="SideBarText">({isCount})</Text>
-                            </Flex>
-                        </Card>
 
-                        {/* <Card w="100%" h="200px" bg="white" p={4}>
+                                </Box>
+                               ))}
+                           </CardBody>
+                                </Card>
 
-                        </Card> */}
-                        {cartDetails.map((el)=>(
+                           <Box mt="30px">
+                         {cartDetails.map((el)=>(
                             <Card w="100%" h="auto" bg="white" p={4} key={el.id}>
                                 <Flex justifyContent="space-between">
                                     <Box w="20%">
@@ -123,16 +126,9 @@ function Cart(){
 
                             </Card>
                         ))}
-                        </VStack>
+                           </Box>
 
-                    </Box>
-                    <Box w="30%" mt={6}>
-                        
-                        <Link to="/checkout">
-                        <Button w="100%" _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="Checkout" >CHECKOUT</Button>
-                        </Link>
-
-                        <Card w="100%" h="auto" bg="white" mt={4} p={4}>
+                           <Card w="50%" h="auto" ml="50%" bg="white" mt={4} p={4}>
                             {coupStatus===false ? 
                             (<InputGroup>
                             <Input value={coupon} onChange={(e)=>setCoupon(e.target.value)} placeholder="Add Coupon Code"/>
@@ -141,7 +137,7 @@ function Cart(){
                                  <Box w="100%" mt={2}>
                                  <Flex justifyContent="space-between">
                                      <Text textStyle="SinglePageHead">PROMO : </Text>
-                                     <Text textStyle="SinglePageHead">₹ -{((Math.floor(30/100)*total))}</Text>
+                                     <Text textStyle="SinglePageHead">₹ -{(Math.floor((30/100)*total))}</Text>
                                  </Flex>
                                  </Box>
 
@@ -170,32 +166,24 @@ function Cart(){
                                 <Box w="100%" mt={2}>
                                 <Flex justifyContent="space-between">
                                     <Text textStyle="SinglePageHead">AMOUNT</Text>
-                                    <Text textStyle="SinglePageHead" color="green">{coupStatus ? (total-(30/100)*total):(total)}</Text>
+                                    <Text textStyle="SinglePageHead" color="green">₹{coupStatus ? (Math.floor(total-(30/100)*total)):(total)}</Text>
                                 </Flex>
                                 </Box>
                                 <br/>
+                                <Button textStyle="AddToCart" _hover={{bg:"white",color:"black",border:"1px solid red"}}>PROCEED TO PAYMENT</Button>
                                 <Divider/>
 
                             
 
                         </Card>
 
-                    </Box>
-                </Flex>
-                </Box>
-            </Box>
-
-          <Box display={isCount===0 ? "block":"none"} w="20%" margin="auto" mt="160px" mb="100px">
-            <Image src="https://www.reliancedigital.in/build/client/images/emptycart.png" alt="" />
-            <Text textStyle="MainBarHead">Your Cart is Empty!</Text>
-            <Link to="/">
-            <Button mr="60px" _hover={{bg:"white",color:"black",border:"1px solid red"}}  mt="20px"textStyle="Checkout">Continue Shopping</Button>
-            </Link>
-          </Box>
-          <Footer/>
-        </div>
+                                
+                                
+                                
+         </Box>
+        </>
     )
 
 }
 
-export default Cart;
+export default OrderDetails;

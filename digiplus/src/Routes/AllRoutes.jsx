@@ -11,6 +11,10 @@ import Headphones from "../Components/PRODUCTS/HEADPHONES PAGE/Headphones";
 import HeadphoneProduct from "../Components/SINGLEPRODUCT/SINGLE HEADPHONE/HeadphoneProduct";
 import Cart from "../Components/CART/Cart";
 import Checkout from "../Components/CHECKOUT/Checkout";
+import AdminLogin from "../Components/ADMIN/AdminLogin";
+import AdminPage from "../Components/ADMIN/AdminPage";
+import AddData from "../Components/ADMIN/AddData";
+import Update from "../Components/ADMIN/Update";
 
 function AllRoutes(){
     return(
@@ -27,6 +31,10 @@ function AllRoutes(){
                 <Route path="/headphone/:id" element={<HeadphoneProduct/>}></Route>
                 <Route path="/cart" element={<Cart/>}></Route>
                 <Route path="/checkout" element={<Checkout/>}></Route>
+                <Route path="/adm" element={<AdminLogin/>}></Route>
+                <Route path="/admpage" element={<AdminPage/>}></Route>
+                <Route path="/add" element={<AddData/>}></Route>
+                <Route path="/update" element={<Update/>}></Route>
             </Routes>
         </div>
     )

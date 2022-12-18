@@ -114,6 +114,12 @@ export const textStyles={
     lineHeight:"15px",
     color:"white",
     borderRadius:"0px"
+ },
+ Admin:{
+    fontSize:"24px",
+    lineHeight:"15px",
+    backgroundColor:"white",
+    color:"black"
  }
 
 };

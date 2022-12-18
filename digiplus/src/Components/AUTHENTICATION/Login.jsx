@@ -1,17 +1,20 @@
 import Navbar from "../NAVBAR/Navbar";
 import Footer from "../FOOTER/Footer";
-import { Card, CardHeader, CardBody,Text, FormControl,Input,Stack } from '@chakra-ui/react'
+import { Card, CardHeader, CardBody,Text, FormControl,Input,Stack ,useToast, Button, Box} from '@chakra-ui/react'
 import React from "react";
 import { LoginContext } from "../../Context/LoginContext";
-import { Navigate } from "react-router-dom";
+import { Navigate,Link } from "react-router-dom";
 
 
  
 
 function Login(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const[email,setEmail]=React.useState("");
     const[password,setPassword]=React.useState("");
     const{loginstate,openLogin}=React.useContext(LoginContext);
+    const[navigate,setNavigate]=React.useState(false);
+    const toast = useToast()
 
 
     async function handleSubmit(e){
@@ -31,11 +34,31 @@ function Login(){
             let data = await response.json();
             console.log(data);
             openLogin(data.token);
-            alert("User is successfully logged in")
+            toast({
+                title: 'LOGGED IN',
+                description: "User has been successfully logged in!",
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
+
+              setTimeout(()=>{
+                   
+                setNavigate(true);
+            
+              },2000)
+    
             
         } catch (error) {
             console.log(error);
-            alert("Invalid Credentials")
+            toast({
+                title: 'Invalid credentials',
+                description: "Please check the data you have entered!",
+                status: 'error',
+                duration: 9000,
+                isClosable: true,
+              })
+    
         }
     
         }
@@ -45,14 +68,20 @@ function Login(){
     return(
         <>
         <Navbar/>
-        {loginstate.isLogin && (
+        {loginstate.isLogin && navigate && (
             <Navigate to="/"/>
         )}
-        <Card  margin="auto" w="35%" h="auto" mt="200px" mb="50px">
+        <Box w="100%" mt="180px" >
+
+        <Link to="/adm"><Button mb={7}  _hover={{bg:"white",color:"black",border:"1px solid red"}}  mt="20px"textStyle="Checkout">Login As Admin</Button>
+                </Link>
+               
+        <Card  margin="auto" w="35%" h="auto"  mb="50px">
             <CardHeader  bg="rgb(247,247,247)">
                 <Text textAlign="initial" color="black" fontSize="18px" fontWeight="700">SIGN IN</Text>
             </CardHeader>
             <CardBody>
+                
                 <form onSubmit={handleSubmit}>
                     <FormControl isRequired>
                         <Stack>
@@ -72,6 +101,7 @@ function Login(){
             </CardBody>
             
         </Card>
+        </Box>
         <Footer/>
         </>
     )
