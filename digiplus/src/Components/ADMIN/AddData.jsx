@@ -3,6 +3,7 @@ import AdmNav from "./AdmNav";
 import { useState } from "react";
 
 
+
 function AddData(){
     const[id,setid]=useState("")
     const[title,setTitle]=useState("")
@@ -23,7 +24,7 @@ function AddData(){
         images:images
        }
        try {
-        let res = await fetch(`https://digiplus-pu8v.vercel.app/admin`,{
+        let res = await fetch(`https://digiplus-2dd4.vercel.app/admin`,{
         method:"POST",
         body: JSON.stringify(obj),
         headers:{

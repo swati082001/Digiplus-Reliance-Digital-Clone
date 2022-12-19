@@ -81,12 +81,12 @@ function OrderDetails(){
     return(
         <>
          <Box w="100%" textAlign="initial">
-                        <Card w="40%" mt="6">
+                        {/* <Card w="40%" mt="6">
                                 <CardHeader bg="#e7e9e9" h="auto" pb={3}>
                                 <Heading  fontSize="17px" fontWeight="500">SHIPPING ADDRESS</Heading>
                                 </CardHeader>
                                 <CardBody>
-                               {firstelement.map((el)=>(
+                               {firstelement && firstelement.map((el)=>(
                                 <Box key={el.pincode}>
                                     <Text textStyle="SinglePageHead" mb={3} textTransform="capitalize" >{el.first}  {el.last}</Text>
                                     <Text textStyle="SideBarText" textTransform="capitalize" >{el.address}</Text>
@@ -97,7 +97,7 @@ function OrderDetails(){
                                 </Box>
                                ))}
                            </CardBody>
-                                </Card>
+                                </Card> */}
 
                            <Box mt="30px">
                          {cartDetails.map((el)=>(
@@ -137,7 +137,7 @@ function OrderDetails(){
                                  <Box w="100%" mt={2}>
                                  <Flex justifyContent="space-between">
                                      <Text textStyle="SinglePageHead">PROMO : </Text>
-                                     <Text textStyle="SinglePageHead">₹ -{(Math.floor((30/100)*total))}</Text>
+                                     <Text textStyle="SinglePageHead">₹ -{(((30/100)*total))}</Text>
                                  </Flex>
                                  </Box>
 

@@ -5,10 +5,11 @@ import AdmNav from "./AdmNav";
 import { useState } from "react";
 
 
-function Update(id){
+function Update(){
    
     const[title,setTitle]=useState("")
     const[price,setPrice]=useState("")
+    const[id,setId]=useState("");
     
 
 
@@ -21,7 +22,7 @@ function Update(id){
         
        }
        try {
-        let res = await fetch(`https://digiplus-pu8v.vercel.app/admin/${id}`,{
+        let res = await fetch(`https://digiplus-2dd4.vercel.app/admin/${id}`,{
             method:"PATCH",
             body:JSON.stringify(obj),
             headers:{
@@ -54,9 +55,11 @@ function Update(id){
             <form onSubmit={handleSubmit} >
 
                 <Stack>
-
-               
-
+                <FormControl>
+                    <Input type="text" value={id} onChange={(e)=>setId(e.target.value)} placeholder="Add product Title"/>
+                </FormControl>
+    
+            
                 <FormControl>
                     <Input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Add product Title"/>
                 </FormControl>

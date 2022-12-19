@@ -14,7 +14,7 @@ function AdminPage(){
 
     async function fetchAdmData(){
         try {
-            let response = await fetch(`https://digiplus-pu8v.vercel.app/admin`);
+            let response = await fetch(`https://digiplus-2dd4.vercel.app/admin`);
             let data = await response.json();
             console.log(data);
             setData(data);
@@ -27,7 +27,7 @@ function AdminPage(){
 
     async function handleRemove(id){
         try {
-            let response = await fetch(`https://digiplus-pu8v.vercel.app/admin/${id}`,{
+            let response = await fetch(`https://digiplus-2dd4.vercel.app/admin/${id}`,{
                 method:"DELETE",
                  headers:{
                 'Content-Type':'application/json'
@@ -48,7 +48,7 @@ function AdminPage(){
 
         fetchAdmData();
 
-    })
+    },[])
 
     console.log(info);
 
@@ -65,7 +65,7 @@ function AdminPage(){
             <CardBody>
         
             <Link to="/add"><Button _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="AddToCart">ADD DATA</Button></Link>
-            <Button _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="AddToCart">UPDATE DATA</Button>
+            <Link to="/update"><Button _hover={{bg:"white",color:"black",border:"1px solid red"}} textStyle="AddToCart">UPDATE DATA</Button></Link>
             
             </CardBody>
             </Stack>

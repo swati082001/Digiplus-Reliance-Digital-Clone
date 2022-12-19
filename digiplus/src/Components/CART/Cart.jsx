@@ -141,7 +141,7 @@ function Cart(){
                                  <Box w="100%" mt={2}>
                                  <Flex justifyContent="space-between">
                                      <Text textStyle="SinglePageHead">PROMO : </Text>
-                                     <Text textStyle="SinglePageHead">₹ -{((Math.floor(30/100)*total))}</Text>
+                                     <Text textStyle="SinglePageHead">₹ -{(((30/100)*total))}</Text>
                                  </Flex>
                                  </Box>
 
