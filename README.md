@@ -10,7 +10,56 @@
 PROJECT LOGO-
 <br/>
 <img src="./digiplus/public/DIGIPLUS.png" width="30%"/>
-
+<hr/>
 LANDING PAGE-
-
+<br/>
 <img src="./digiplus/public/reliance clone.png" width="40%"/>
+<br/>
+<hr/>
+REGISTER PAGE-
+<br/>
+<img src="./digiplus/public/React App.png" width="30%"/>
+
+<br/>
+<hr/>
+LOGIN PAGE-
+<br/>
+<img src="./digiplus/public/React App (1).png" width="30%"/>
+<br/>
+<hr/>
+PRODUCT PAGES-
+<br/><br/>
+1) MOBILES SECTION
+<br/>
+<img src="./digiplus/public/React App (2).png" width="30%"/><br/><br/>
+2) LAPTOPS SECTION
+<br/>
+<img src="./digiplus/public/React App (3).png" width="30%"/><br/><br/>
+3) HEADPHONES SECTION
+<br/>
+<img src="./digiplus/public/React App (4).png" width="30%"/><br/>
+
+<br/><hr/><br/>
+SINGLE PRODUCT PAGE-
+
+<img src="./digiplus/public/React App (5).png" width="30%"/>
+<br/><hr/><br/>
+CART SECTION-
+<br/>
+<img src="./digiplus/public/React App (6).png" width="30%"/>
+<br/><hr/><br/>
+CHECKOUT SECTION-
+<br/>
+<img src="./digiplus/public/React App (7).png" width="30%"/>
+
+<img src="./digiplus/public/React App (8).png" width="30%" />
+
+<img src="./digiplus/public/React App (9).png" width="30%"/>
+<br/><hr/><br/>
+OTP MODAL-
+<br/>
+<img src="./digiplus/public/React App (10).png" width="30%"/>
+<br/><hr/><br/>
+ADMIN PANEL-
+<br/>
+<img src="./digiplus/public/React App (11).png" width="30%"/>
