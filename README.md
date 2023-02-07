@@ -7,7 +7,9 @@
 <h3>TECH-STACK -   HTML | CSS | Javascript | REACT | CHAKRA-UI</h3>
 <hr/>
 
-
+PROJECT LOGO-
+<br/>
+<img src="./digiplus/public/DIGIPLUS.png" width="30%"/>
 
 LANDING PAGE-
 
